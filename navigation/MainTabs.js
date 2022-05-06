@@ -1,0 +1,115 @@
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import React from "react";
+import Home from "../screens/Home";
+import Search from "../screens/Search";
+import Like from "../screens/Like";
+import MyPage from "../screens/MyPage";
+import color from "../theme/color";
+import { Image } from "react-native";
+import HomeActive from "../assets/svgIcon/HomeActive";
+import HomeInactive from "../assets/svgIcon/HomeInactive";
+import SearchInactive from "../assets/svgIcon/SearchInactive";
+import LikeActive from "../assets/svgIcon/LikeActive";
+import LikeInactive from "../assets/svgIcon/LikeInactive";
+import MyPageActive from "../assets/svgIcon/MyPageActive";
+import MyPageInactive from "../assets/svgIcon/MyPageInactive";
+
+const Tab = createBottomTabNavigator();
+
+const MainTabs = () => {
+  return (
+    <Tab.Navigator
+      sceneContainerStyle={{}}
+      initialRouteName="Home"
+      screenOptions={{
+        unmountOnBlur: true, // caching, not fetch again
+        headerShown: false,
+        tabBarStyle: { backgroundColor: "white" },
+        tabBarActiveTintColor: color.MAIN_PURPLE,
+        tabBarInactiveTintColor: color.GRAY_300,
+        headerStyle: { backgroundColor: "white" },
+        headerTitleStyle: { color: "black" },
+        tabBarLabelStyle: { fontSize: 12, fontWeight: "600", marginTop: -5 },
+      }}
+    >
+      <Tab.Screen
+        name="Home"
+        component={Home}
+        options={{
+          title: "홈",
+          tabBarIcon: ({ focused }) => {
+            return (
+              <Image
+                source={
+                  focused
+                    ? require("../assets/pngIcon/ic_home_active.png")
+                    : require("../assets/pngIcon/ic_home_inactive.png")
+                }
+                style={{ width: 30, height: 30 }}
+              />
+            );
+          },
+        }}
+      />
+      <Tab.Screen
+        name="Search"
+        component={Search}
+        options={{
+          title: "둘러보기",
+          tabBarIcon: ({ focused }) => {
+            return (
+              <Image
+                source={
+                  focused
+                    ? require("../assets/pngIcon/ic_search_active.png")
+                    : require("../assets/pngIcon/ic_search_inactive.png")
+                }
+                style={{ width: 30, height: 30 }}
+              />
+            );
+          },
+        }}
+      />
+      <Tab.Screen
+        name="Like"
+        component={Like}
+        options={{
+          title: "좋아요",
+          tabBarIcon: ({ focused }) => {
+            return (
+              <Image
+                source={
+                  focused
+                    ? require("../assets/pngIcon/ic_like_active.png")
+                    : require("../assets/pngIcon/ic_like_inactive.png")
+                }
+                style={{ width: 30, height: 30 }}
+              />
+            );
+          },
+        }}
+      />
+      <Tab.Screen
+        name="MyPage"
+        component={MyPage}
+        options={{
+          title: "내 정보",
+          tabBarIcon: ({ focused }) => {
+            return (
+              <Image
+                source={
+                  focused
+                    ? require("../assets/pngIcon/ic_mypage_active.png")
+                    : require("../assets/pngIcon/ic_mypage_inactive.png")
+                }
+                style={{ width: 30, height: 30 }}
+              />
+            );
+          },
+        }}
+      />
+    </Tab.Navigator>
+  );
+};
+
+export default MainTabs;
