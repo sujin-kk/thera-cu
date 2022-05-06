@@ -9,6 +9,7 @@ import { Image } from "react-native";
 import HomeActive from "../assets/svgIcon/HomeActive";
 import HomeInactive from "../assets/svgIcon/HomeInactive";
 import SearchInactive from "../assets/svgIcon/SearchInactive";
+import SearchActive from "../assets/svgIcon/SearchActive";
 import LikeActive from "../assets/svgIcon/LikeActive";
 import LikeInactive from "../assets/svgIcon/LikeInactive";
 import MyPageActive from "../assets/svgIcon/MyPageActive";
@@ -38,16 +39,7 @@ const MainTabs = () => {
         options={{
           title: "홈",
           tabBarIcon: ({ focused }) => {
-            return (
-              <Image
-                source={
-                  focused
-                    ? require("../assets/pngIcon/ic_home_active.png")
-                    : require("../assets/pngIcon/ic_home_inactive.png")
-                }
-                style={{ width: 30, height: 30 }}
-              />
-            );
+            return focused ? <HomeActive /> : <HomeInactive />;
           },
         }}
       />
@@ -57,16 +49,7 @@ const MainTabs = () => {
         options={{
           title: "둘러보기",
           tabBarIcon: ({ focused }) => {
-            return (
-              <Image
-                source={
-                  focused
-                    ? require("../assets/pngIcon/ic_search_active.png")
-                    : require("../assets/pngIcon/ic_search_inactive.png")
-                }
-                style={{ width: 30, height: 30 }}
-              />
-            );
+            return focused ? <SearchActive /> : <SearchInactive />;
           },
         }}
       />
@@ -76,16 +59,7 @@ const MainTabs = () => {
         options={{
           title: "좋아요",
           tabBarIcon: ({ focused }) => {
-            return (
-              <Image
-                source={
-                  focused
-                    ? require("../assets/pngIcon/ic_like_active.png")
-                    : require("../assets/pngIcon/ic_like_inactive.png")
-                }
-                style={{ width: 30, height: 30 }}
-              />
-            );
+            return focused ? <LikeActive /> : <LikeInactive />;
           },
         }}
       />
@@ -95,16 +69,7 @@ const MainTabs = () => {
         options={{
           title: "내 정보",
           tabBarIcon: ({ focused }) => {
-            return (
-              <Image
-                source={
-                  focused
-                    ? require("../assets/pngIcon/ic_mypage_active.png")
-                    : require("../assets/pngIcon/ic_mypage_inactive.png")
-                }
-                style={{ width: 30, height: 30 }}
-              />
-            );
+            return focused ? <MyPageActive /> : <MyPageInactive />;
           },
         }}
       />

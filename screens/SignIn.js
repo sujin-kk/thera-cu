@@ -16,4 +16,4 @@ const SignIn = () => {
   );
 };
 
-export default Search;
+export default SignIn;

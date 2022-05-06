@@ -7,20 +7,23 @@ import {
   StyleSheet,
   Dimensions,
 } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
 const Login = () => {
   const navigation = useNavigation();
   const onLogin = () => {
-    navigation.navigate("MainTabs", {
-      screen: "Home",
+    navigation.navigate("MainStack", {
+      screen: "MainTabs",
     });
   };
 
   return (
-    <View>
-      <Text>로그인 스크린</Text>
-      <TouchableOpacity onPress={onLogin}></TouchableOpacity>
+    <View style={{ width: "100%", height: "100%" }}>
+      <TouchableOpacity
+        style={{ width: "100%", height: "100%" }}
+        onPress={onLogin}
+      ></TouchableOpacity>
     </View>
   );
 };

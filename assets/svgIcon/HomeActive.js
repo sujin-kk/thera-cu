@@ -5,8 +5,8 @@ import Svg, { Path } from "react-native-svg";
 function HomeActive(props) {
   return (
     <Svg
-      width={37}
-      height={32}
+      width={22}
+      height={20}
       viewBox="0 0 37 32"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

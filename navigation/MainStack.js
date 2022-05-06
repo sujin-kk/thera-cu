@@ -1,18 +1,18 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import Login from "../screens/Login";
+import MainTabs from "./MainTabs";
 
 const NativeStack = createNativeStackNavigator();
 
-const Stack = () => (
+const MainStack = () => (
   <NativeStack.Navigator
     screenOptions={{
       animation: "fade",
       headerShown: false,
     }}
   >
-    <NativeStack.Screen name="Login" component={Login} />
+    <NativeStack.Screen name="MainTabs" component={MainTabs} />
   </NativeStack.Navigator>
 );
 
-export default Stack;
+export default MainStack;
