@@ -10,6 +10,7 @@ const color = {
   GRAY_200: "#D9D9D9",
   GRAY_100: "#F2F2F2",
   WHITE: "#FFFFFF",
+  BACKGROUND: "#F9FAFF",
 };
 
 export default color;
