@@ -95,6 +95,7 @@ const Header = styled.View`
 const HeaderText = styled.Text`
   font-size: 20px;
   font-weight: bold;
+  color:black;
   marginTop: ${statusBarHeight}px;
   marginLeft: 25px;
 `;
@@ -173,6 +174,9 @@ const CardViewWrap = styled.View`
   };
   shadow-radius: 4px;
   shadow-opacity: 0.2;
+  androidShadow:{
+    elevation:6
+  };
 `;
 
 const Card = styled.View`
@@ -182,7 +186,9 @@ const Card = styled.View`
   border-radius: 7px;
   margin-right: 32px;
   overflow: scroll;
-
+  androidShadow:{
+    elevation:6
+  };
 `;
 
 const CardHash = styled.View`

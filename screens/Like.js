@@ -1,19 +1,105 @@
-import React from "react";
+import React, {Component} from 'react';
 import {
   View,
   Text,
-  ScrollView,
   Image,
   StyleSheet,
   Dimensions,
+  Platform,
+  StatusBar,
+  SafeAreaView,
+  ScrollView,
 } from "react-native";
 
+import "react-native-gesture-handler";
+import { TabView, TabBar, SceneMap } from "react-native-tab-view";
+import { getStatusBarHeight } from "react-native-status-bar-height";
+import styled from "styled-components/native";
+import color from "../theme/color";
+import ApiService from "../util/ApiService";
+import LikeList from "../components/LikeList";
+import MyList from '../components/MyList';
+
+const statusBarHeight =
+  Platform.OS === 'ios' ? getStatusBarHeight(true) : StatusBar.currentHeight;
+const windowWidth = Dimensions.get('window').width;
+
 const Like = () => {
+  const likedata = ApiService().getLikeList().list;
+  const mydata = ApiService().getMyList().list;
+
+  const [index, setIndex] = React.useState(0);
+  const [routes] = React.useState([
+    { key: "first", title: "좋아요"},
+    { key: "second", title: "내 리스트"}
+  ]);
+
+const FirstRoute = () => (
+  <View style={{ flex: 1, }}>
+    <LikeList style={{}} title="TEST" data={likedata}/>    
+  </View>
+);
+
+const SecondRoute = () => (
+  <View style={{ flex: 1, backgroundColor: "#F9FAFF" }}>
+    <MyList style={{flex:1, position:"relative"}} title="" data={mydata}/>
+  </View>
+);
+
+const renderScene = SceneMap({
+  first: FirstRoute,
+  second: SecondRoute,
+});
+
   return (
-    <View>
-      <Text>좋아요 스크린</Text>
-    </View>
+    <LikeView>
+      <HeaderText>즐겨찾기</HeaderText>
+      <TabView
+      navigationState={{ index, routes }}
+      renderScene={renderScene}
+      onIndexChange={setIndex}
+      initialLayout={{ width: windowWidth }}
+      renderTabBar={props => (
+        <TabBar
+          {...props}
+          activeColor={'#614692'}
+          inactiveColor={color.GRAY_500}
+          indicatorStyle={{
+            backgroundColor: "#614692",
+            border: "bold",
+            marginLeft:103-40,
+            width:80,
+          }}
+          style={{
+            backgroundColor:"#F9FAFF",
+            fontWeight: 900,
+            //marginBottom:10,
+            shadowOffset: { height: 1, width: 1 },
+            shadowColor: "#614692"
+          }}
+          pressColor={"transparent"}
+        />
+      )}
+    />
+    </LikeView>
+   
+ 
   );
 };
+
+const LikeView = styled.View`
+  background-color: #F9FAFF;
+  width: 100%;
+  height: 100%; 
+`;
+
+const HeaderText = styled.Text`
+  font-size: 20px;
+  font-weight: bold;
+  color:black;
+  marginTop: ${statusBarHeight+15}px;
+  marginLeft: 25px;
+`;
+
 
 export default Like;

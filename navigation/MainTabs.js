@@ -21,11 +21,11 @@ const MainTabs = () => {
   return (
     <Tab.Navigator
       sceneContainerStyle={{}}
-      initialRouteName="Home"
+      initialRouteName="Like"
       screenOptions={{
         unmountOnBlur: true, // caching, not fetch again
         headerShown: false,
-        tabBarStyle: { backgroundColor: "white" },
+        tabBarStyle: { backgroundColor: "#F9FAFF" },
         tabBarActiveTintColor: color.MAIN_PURPLE,
         tabBarInactiveTintColor: color.GRAY_300,
         headerStyle: { backgroundColor: "white" },
@@ -57,7 +57,7 @@ const MainTabs = () => {
         name="Like"
         component={Like}
         options={{
-          title: "좋아요",
+          title: "즐겨찾기",
           tabBarIcon: ({ focused }) => {
             return focused ? <LikeActive /> : <LikeInactive />;
           },

@@ -1,131 +1,216 @@
-
-let getMeditationList = () => {
-    return meditations;
-};
-
-let getLikeList = () => {
-    return likeMeditations;
-}
-
-let getMyList = () => {
-    return myMeditations;
-}
-
-let meditations = {
-    "list": [
+function ApiService() {
+    const API = {
+      getMeditationList: () => {
+        return meditations;
+      },
+      getLikeList: () => {
+        return likeMeditations;
+      },
+      getMyList: () => {
+        return myMeditations;
+      },
+      getHomeTopList: () => {
+        return homeTopMeditations;
+      },
+      getTrendList: () => {
+        return trendMeditations;
+      },
+    };
+  
+    const meditations = {
+      list: [
         {
-            "id": 1,
-            "name": "보라색 밤하늘",
-            "tag": ["휴식", "ASMR"],
-            "image": "../assets/pngImage/img_cover1.png",
-            "likeNum": 3753,
-            "isLike": true,
+          id: 1,
+          name: "보라색 밤하늘",
+          tag: ["휴식", "ASMR"],
+          path: require("../assets/pngImage/img_cover1.png"),
+          likeNum: 3753,
+          isLike: true,
         },
         {
-            "id": 2,
-            "name": "바다 위를 걷는 기분",
-            "tag": ["안정", "여행"],
-            "image": "../assets/pngImage/img_cover7.png",
-            "likeNum": 118,
-            "isLike": false,
+          id: 2,
+          name: "바다 위를 걷는 기분",
+          tag: ["안정", "여행"],
+          path: require("../assets/pngImage/img_cover7.png"),
+          likeNum: 118,
+          isLike: false,
         },
         {
-            "id": 3,
-            "name": "파리의 밤",
-            "tag": ["잔잔한", "ASMR", "여행"],
-            "image": "../assets/pngImage/img_cover4.png",
-            "likeNum": 1901,
-            "isLike": false,
+          id: 3,
+          name: "파리의 밤",
+          tag: ["잔잔한", "ASMR", "여행"],
+          path: require("../assets/pngImage/img_cover4.png"),
+          likeNum: 1901,
+          isLike: false,
         },
         {
-            "id": 4,
-            "name": "거품과 함께 사라지다",
-            "tag": ["휴식", "잔잔함", "치유"],
-            "image": "../assets/pngImage/img_cover2.png",
-            "likeNum": 3753,
-            "isLike": true,
+          id: 4,
+          name: "거품과 함께 사라지다",
+          tag: ["휴식", "잔잔함", "치유"],
+          path: require("../assets/pngImage/img_cover2.png"),
+          likeNum: 3753,
+          isLike: true,
         },
         {
-            "id": 5,
-            "name": "혼자라고 생각말기",
-            "tag": ["휴식", "안정"],
-            "image": "../assets/pngImage/img_cover3.png",
-            "likeNum": 283,
-            "isLike": true,
+          id: 5,
+          name: "혼자라고 생각말기",
+          tag: ["휴식", "안정"],
+          path: require("../assets/pngImage/img_cover3.png"),
+          likeNum: 283,
+          isLike: true,
         },
         {
-            "id": 6,
-            "name": "더 자유로워지기",
-            "tag": ["잔잔함", "치유"],
-            "image": "../assets/pngImage/img_cover6.png",
-            "likeNum": 1632,
-            "isLike": true,
+          id: 6,
+          name: "더 자유로워지기",
+          tag: ["잔잔함", "치유"],
+          path: require("../assets/pngImage/img_cover6.png"),
+          likeNum: 1632,
+          isLike: true,
         },
         {
-            "id": 7,
-            "name": "잠자리 이야기",
-            "tag": ["ASMR", "수면"],
-            "image": "../assets/pngImage/img_cover5.png",
-            "likeNum": 89,
-            "isLike": false,
+          id: 7,
+          name: "잠자리 이야기",
+          tag: ["ASMR", "수면"],
+          path: require("../assets/pngImage/img_cover5.png"),
+          likeNum: 89,
+          isLike: false,
         },
-    ]
-};
-
-let likeMeditations = {
-    "list": [
+      ],
+    };
+  
+    const likeMeditations = {
+      list: [
         {
-            "id": 1,
-            "name": "보라색 밤하늘",
-            "tag": ["휴식", "ASMR"],
-            "image": "../assets/pngImage/img_cover1.png",
-            "likeNum": 3753,
-        },
-        {
-            "id": 4,
-            "name": "거품과 함께 사라지다",
-            "tag": ["휴식", "잔잔함", "치유"],
-            "image": "../assets/pngImage/img_cover2.png",
-            "likeNum": 3753,
+          id: 1,
+          name: "보라색 밤하늘",
+          tag: ["휴식", "ASMR"],
+          path: require("../assets/pngImage/img_cover1.png"),
+          likeNum: 3753,
+          detail: "당신의 편안한 휴식을 도와줍니다.\n명상과 함께 보라색의 아름다운 밤하늘을 여행하세요."
         },
         {
-            "id": 5,
-            "name": "혼자라고 생각말기",
-            "tag": ["휴식", "안정"],
-            "image": "../assets/pngImage/img_cover3.png",
-            "likeNum": 283,
+          id: 4,
+          name: "거품과 함께 사라지다",
+          tag: ["휴식", "잔잔함", "치유"],
+          path: require("../assets/pngImage/img_cover2.png"),
+          likeNum: 3753,
+          detail: "오늘 하루 고생한 당신.\n거품과 함께 스트레스를 날려보내세요."
         },
         {
-            "id": 6,
-            "name": "더 자유로워지기",
-            "tag": ["잔잔함", "치유"],
-            "image": "../assets/pngImage/img_cover6.png",
-            "likeNum": 1632,
-        },
-    ]
-};
-
-let myMeditations = {
-    "list": [
-        {
-            "id": 1,
-            "name": "보라색 밤하늘",
-            "tag": ["휴식", "ASMR"],
-            "image": "../assets/pngImage/img_cover1.png",
-            "likeNum": 3753,
-            "time": "07:50"
+          id: 5,
+          name: "혼자라고 생각말기",
+          tag: ["휴식", "안정"],
+          path: require("../assets/pngImage/img_cover3.png"),
+          likeNum: 283,
+          detail: "바쁜 일과를 마치고 집으로 돌아온 당신.\n혼자만이 느낄 수 있는 휴식을 안겨드릴게요."
         },
         {
-            "id": 4,
-            "name": "거품과 함께 사라지다",
-            "tag": ["휴식", "잔잔함", "치유"],
-            "image": "../assets/pngImage/img_cover2.png",
-            "likeNum": 3753,
-            "time": "19:52"
+          id: 6,
+          name: "더 자유로워지기",
+          tag: ["잔잔함", "치유"],
+          path: require("../assets/pngImage/img_cover6.png"),
+          likeNum: 1632,
+          detail: "지금 이 순간만큼은 자유롭게."
         },
-    ]
-};
-
-export default getMeditationList;
-export default getLikeList;
-export default getMyList;
+      
+      ],
+    };
+  
+    const myMeditations = {
+      list: [
+        {
+          id: 1,
+          name: "보라색 밤하늘",
+          tag: ["휴식", "ASMR"],
+          path: require("../assets/pngImage/img_cover1.png"),
+          likeNum: 3753,
+          time: "07:50",
+        },
+        {
+          id: 7,
+          name: "잠자리 이야기",
+          tag: ["ASMR", "수면"],
+          path: require("../assets/pngImage/img_cover5.png"),
+          likeNum: 89,
+          time: "13:30",
+        },
+        {
+          id: 4,
+          name: "거품과 함께 사라지다",
+          tag: ["휴식", "잔잔함", "치유"],
+          path: require("../assets/pngImage/img_cover2.png"),
+          likeNum: 3753,
+          time: "22:52",
+        },
+        
+      ],
+    };
+  
+    const homeTopMeditations = {
+      list: [
+        {
+          id: 1,
+          name: "보라색 밤하늘",
+          tag: ["휴식", "ASMR"],
+          path: require("../assets/pngImage/img_cover1.png"),
+          likeNum: 3753,
+        },
+        {
+          id: 5,
+          name: "혼자라고 생각말기",
+          tag: ["휴식", "안정"],
+          path: require("../assets/pngImage/img_cover3.png"),
+          likeNum: 283,
+        },
+        {
+          id: 4,
+          name: "거품과 함께 사라지다",
+          tag: ["휴식", "잔잔함", "치유"],
+          path: require("../assets/pngImage/img_cover2.png"),
+          likeNum: 3753,
+        },
+      ],
+    };
+  
+    const trendMeditations = {
+      list: [
+        {
+          id: 4,
+          name: "거품과 함께 사라지다",
+          tag: ["휴식", "잔잔함", "치유"],
+          path: require("../assets/pngImage/img_cover2.png"),
+          likeNum: 3753,
+          isLike: true,
+        },
+        {
+          id: 5,
+          name: "혼자라고 생각말기",
+          tag: ["휴식", "안정"],
+          path: require("../assets/pngImage/img_cover3.png"),
+          likeNum: 283,
+          isLike: true,
+        },
+        {
+          id: 6,
+          name: "더 자유로워지기",
+          tag: ["잔잔함", "치유"],
+          path: require("../assets/pngImage/img_cover6.png"),
+          likeNum: 1632,
+          isLike: true,
+        },
+        {
+          id: 7,
+          name: "잠자리 이야기",
+          tag: ["ASMR", "수면"],
+          path: require("../assets/pngImage/img_cover5.png"),
+          likeNum: 89,
+          isLike: false,
+        },
+      ],
+    };
+  
+    return API;
+  }
+  
+  export default ApiService;
+  
