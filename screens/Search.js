@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   View,
   Text,
@@ -22,11 +22,37 @@ const hashTagList = ['수면', '안정', 'ASMR', '휴식', 'Theraphy', '여행',
 const data = ApiService().getMeditationList().list;
 
 const Search = () => {
+  const [isPressed, setIsPressed] = useState([false, false, false, false, false, false, false, false, false]);
+  const [selectedTag, setSelectedTag] = useState([]);
+  const onPress = (idx) => {
+    const selected = isPressed.map((is, index) => {
+      if (idx === index) is = !is;
+      return is;
+    })
+    setIsPressed(selected);
+    let pressed = hashTagList[idx];
+    if (selected[idx]) setSelectedTag([...selectedTag, pressed]);
+    else setSelectedTag(selectedTag.filter(tag => tag != pressed));
+  }
+
+  const searchResult = data.map((d)=>{
+    return d.tag.filter(h=> selectedTag.includes(h));
+  })
+  const searchData = [];
+  for(let i = 0; i<searchResult.length ;i++){
+    if(searchResult[i].length != 0){
+      searchData.push(data[i]);
+    }
+  }
+
+
   return (
     <SearchView>
+
       <Header>
         <HeaderText>검색</HeaderText>
       </Header>
+
       <SearchBarWrap>
         <SearchIcon source={require('../assets/pngIcon/ic_search_bar.png')} />
         <SearchBar
@@ -34,23 +60,34 @@ const Search = () => {
           placeholderTextColor='#C4C4C4'>
         </SearchBar>
       </SearchBarWrap>
+
       <HashTagWrap>
-        {hashTagList.map((tag) => (
-          <HashTag key={tag}>
-            <Image style={{ marginLeft: 15 }} source={require('../assets/pngIcon/ic_hash_tag_inactive.png')}></Image>
-            <Text style={{ fontSize: 15, marginRight: 15 }}>{tag}</Text>
+        {hashTagList.map((tag, idx) => (
+          <HashTag style={{ backgroundColor: isPressed[idx] ? '#614692' : 'white' }} key={tag} onPress={() => { onPress(idx) }}>
+            <Image style={{ marginLeft: 15 }} source={isPressed[idx] ? require('../assets/pngIcon/ic_hash_tag_active.png') : require('../assets/pngIcon/ic_hash_tag_inactive.png')}></Image>
+            <Text style={{ fontSize: 15, marginRight: 15, color: isPressed[idx] ? 'white' : 'black' }}> {tag}</Text>
           </HashTag>
         ))}
       </HashTagWrap>
+
       <Line></Line>
-      <Text style={{ fontSize: 16, fontWeight: "bold", marginLeft: 25, marginBottom: 10 }}> 휴식  ASMR 에 해당하는 명상 리스트</Text>
-      <ScrollView contentContainerStyle={{ }} style={{flex:1, width: '100%'}}>
-        <View style={{ flexDirection: 'row', flexWrap:'wrap'}}>
-          {data.map(m=>(
-          <SearchList data={m}></SearchList>
-          ))}
-        </View>
-      </ScrollView>
+
+      {selectedTag.length == 0 ?
+        (<View style={{ flex: 1, justifyContent: "center" }}>
+          <Text style={{ fontSize: 16, color: '#999999', textAlign: "center" }}>해시태그를 통한 검색이 가능해요!</Text>
+        </View>) :
+        (<View style={{ flex: 1 }}>
+          <Text style={{ fontSize: 16, fontWeight: "bold", marginLeft: 30, marginBottom: 10 }}>
+            {selectedTag.toString()}에 해당하는 명상 리스트</Text>
+          <ScrollView contentContainerStyle={{ flexGrow: 1 }} >
+            <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
+              {searchData.map(m => (
+                <SearchList data={m} tag={selectedTag}></SearchList>
+              ))}
+            </View>
+          </ScrollView>
+        </View>)}
+
     </SearchView>
   );
 };
@@ -107,8 +144,7 @@ const HashTagWrap = styled.View`
   margin-left: 36px;
 `;
 
-const HashTag = styled.View`
-  background-color: white;
+const HashTag = styled.TouchableOpacity`
   height: 37px;
   flex-direction:row;
   align-items: center;
