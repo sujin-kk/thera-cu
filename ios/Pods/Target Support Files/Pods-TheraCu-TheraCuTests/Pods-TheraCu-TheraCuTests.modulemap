@@ -1,6 +1,0 @@
-module Pods_TheraCu_TheraCuTests {
-  umbrella header "Pods-TheraCu-TheraCuTests-umbrella.h"
-
-  export *
-  module * { export * }
-}
