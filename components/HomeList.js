@@ -7,10 +7,6 @@ import { useNavigation } from "@react-navigation/native";
 export default HomeList = ({ title, data }) => {
   const navigation = useNavigation();
 
-  const goToPlay = (id) => {
-    navigation.navigate("Play", {});
-  };
-
   const renderItem = ({ item }) => {
     return (
       <TouchableOpacity
@@ -19,7 +15,11 @@ export default HomeList = ({ title, data }) => {
           width: 120,
           height: "100%",
         }}
-        onPress={goToPlay(item.id)}
+        onPress={() => {
+          navigation.navigate("Play", {
+            id: item.id,
+          });
+        }}
       >
         <HomeImage path={item.path} />
         <Text style={{ marginTop: 5 }}>{item.name}</Text>
