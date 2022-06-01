@@ -22,9 +22,18 @@ export default MyList = ({ title, data }) => {
 
         <Text style={{ 
           position: "absolute",
-          top:36,
-          left:45,
-          fontSize: 30,
+          top:30,
+          left:140,
+          fontSize: 17,
+          fontWeight: "400",
+          color:"black",
+          }}>{item.name}</Text>
+
+        <Text style={{ 
+          position: "absolute",
+          bottom:30,
+          left:140,
+          fontSize: 20,
           fontWeight: "400",
           color:"black",
         }}>{(()=>{
@@ -34,9 +43,9 @@ export default MyList = ({ title, data }) => {
 
         <Text style={{ 
           position: "absolute",
-          top:28,
-          left:115,
-          fontSize: 40,
+          bottom:28,
+          left:185,
+          fontSize: 25,
           fontWeight: "500",
           letterSpacing:4,
           color:"black",

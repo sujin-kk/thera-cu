@@ -23,6 +23,7 @@ export default LikeList = ({ title, data }) => {
           position:"absolute",
           marginTop:15,
           width: "100%",
+         
         }}
       >
         <LikeImage style={{}} path={item.path} />

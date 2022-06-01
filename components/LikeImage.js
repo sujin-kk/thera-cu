@@ -1,7 +1,17 @@
-import React from "react";
-import { Image, View,TouchableOpacity } from "react-native";
+import React,{useCallback, useState} from "react";
+import { Image, View,TouchableOpacity} from "react-native";
+
+import ApiService from "../util/ApiService";
 
 const LikeImage = ({ path }) => {
+
+  const [isLike,setIsLike]=useState(true);
+
+  const changeImage=useCallback(()=>{
+    setIsLike(prevIsLike=>!prevIsLike)
+    ApiService().setMeditationList(isLike)
+  },)
+
   return (
     <View style={{width: 375, height: "100%"}}>
       
@@ -38,28 +48,28 @@ const LikeImage = ({ path }) => {
         }}
         source={require("../assets/pngIcon/ic_play.png")}
       />
-
-      {/* <TouchableOpacity onPress={this.changeImage}> */}
+    
+      <View style={{width:22,height:20,position: "absolute",top:22,right:5}}>
+      <TouchableOpacity onPress={changeImage}>
         <Image
         style={{
           resizeMode:"contain",
           width:22,
           height:20,
-          position: "absolute",
-          top:22,
-          right:5,
         }}
-        source={require("../assets/pngImage/ic_like_active.png")}
+        source={isLike?require("../assets/pngImage/ic_like_active.png"):require("../assets/pngImage/ic_like_dislike.png")}
         />
-      {/* </TouchableOpacity> */}
-      
+      </TouchableOpacity>
+      </View>
+  
+
     </View>
+    
+      
+
 
   );
 };
 
 export default LikeImage;
 
-// const changeImage=()=>{
-//   this.setState({img:require("../assets/pngImage/ic_like_inactive.png")})
-// }

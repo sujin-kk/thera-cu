@@ -1,14 +1,9 @@
 import React, {Component} from 'react';
 import {
   View,
-  Text,
-  Image,
-  StyleSheet,
   Dimensions,
   Platform,
   StatusBar,
-  SafeAreaView,
-  ScrollView,
 } from "react-native";
 
 import "react-native-gesture-handler";
@@ -25,7 +20,14 @@ const statusBarHeight =
 const windowWidth = Dimensions.get('window').width;
 
 const Like = () => {
-  const likedata = ApiService().getLikeList().list;
+
+  //isLike=true만 출력.
+  function isLike(element){
+    if(element.isLike)
+      return true;
+  }
+  const likedata = ApiService().getMeditationList().list.filter(isLike);
+
   const mydata = ApiService().getMyList().list;
 
   const [index, setIndex] = React.useState(0);

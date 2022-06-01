@@ -3,6 +3,10 @@ function ApiService() {
       getMeditationList: () => {
         return meditations;
       },
+      setMeditationList:(isLike)=>{
+        //this.meditations.list.isLike=val;
+        meditations.list.isLike=isLike;
+      },
       getLikeList: () => {
         return likeMeditations;
       },
@@ -15,6 +19,7 @@ function ApiService() {
       getTrendList: () => {
         return trendMeditations;
       },
+      
     };
   
     const meditations = {
@@ -26,6 +31,7 @@ function ApiService() {
           path: require("../assets/pngImage/img_cover1.png"),
           likeNum: 3753,
           isLike: true,
+          detail: "당신의 편안한 휴식을 도와줍니다.\n명상과 함께 보라색의 아름다운 밤하늘을 여행하세요."
         },
         {
           id: 2,
@@ -34,6 +40,7 @@ function ApiService() {
           path: require("../assets/pngImage/img_cover7.png"),
           likeNum: 118,
           isLike: false,
+          detail: "바다 위를 걷는 기분.\n명상 설명"
         },
         {
           id: 3,
@@ -42,6 +49,7 @@ function ApiService() {
           path: require("../assets/pngImage/img_cover4.png"),
           likeNum: 1901,
           isLike: false,
+          detail: "파리의 밤.\n명상 설명"
         },
         {
           id: 4,
@@ -50,6 +58,7 @@ function ApiService() {
           path: require("../assets/pngImage/img_cover2.png"),
           likeNum: 3753,
           isLike: true,
+          detail: "오늘 하루 고생한 당신.\n거품과 함께 스트레스를 날려보내세요."
         },
         {
           id: 5,
@@ -58,6 +67,7 @@ function ApiService() {
           path: require("../assets/pngImage/img_cover3.png"),
           likeNum: 283,
           isLike: true,
+          detail: "바쁜 일과를 마치고 집으로 돌아온 당신.\n혼자만이 느낄 수 있는 휴식을 안겨드릴게요."
         },
         {
           id: 6,
@@ -66,6 +76,7 @@ function ApiService() {
           path: require("../assets/pngImage/img_cover6.png"),
           likeNum: 1632,
           isLike: true,
+          detail: "지금 이 순간만큼은 자유롭게."
         },
         {
           id: 7,
@@ -74,6 +85,7 @@ function ApiService() {
           path: require("../assets/pngImage/img_cover5.png"),
           likeNum: 89,
           isLike: false,
+          detail: "잠자리 이야기.\n명상 설명"
         },
       ],
     };
@@ -124,6 +136,7 @@ function ApiService() {
           tag: ["휴식", "ASMR"],
           path: require("../assets/pngImage/img_cover1.png"),
           likeNum: 3753,
+          isAlarm: true,
           time: "07:50",
         },
         {
@@ -132,6 +145,7 @@ function ApiService() {
           tag: ["ASMR", "수면"],
           path: require("../assets/pngImage/img_cover5.png"),
           likeNum: 89,
+          isAlarm: true,
           time: "13:30",
         },
         {
@@ -140,6 +154,7 @@ function ApiService() {
           tag: ["휴식", "잔잔함", "치유"],
           path: require("../assets/pngImage/img_cover2.png"),
           likeNum: 3753,
+          isAlarm: true,
           time: "22:52",
         },
         
