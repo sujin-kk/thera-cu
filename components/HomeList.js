@@ -1,21 +1,31 @@
 import React from "react";
-import { FlatList, View, Text, Image } from "react-native";
+import { FlatList, View, Text, Image, TouchableOpacity } from "react-native";
 import color from "../theme/color";
 import HomeImage from "./HomeImage";
+import { useNavigation } from "@react-navigation/native";
 
 export default HomeList = ({ title, data }) => {
+  const navigation = useNavigation();
+
+  const goToPlay = (id) => {
+    navigation.navigate("Play", {
+      id: id,
+    });
+  };
+
   const renderItem = ({ item }) => {
     return (
-      <View
+      <TouchableOpacity
         style={{
           flexDirection: "column",
           width: 120,
           height: "100%",
         }}
+        onPress={goToPlay(item.id)}
       >
         <HomeImage path={item.path} />
         <Text style={{ marginTop: 5 }}>{item.name}</Text>
-      </View>
+      </TouchableOpacity>
     );
   };
 
