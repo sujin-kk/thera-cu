@@ -8,9 +8,7 @@ export default HomeList = ({ title, data }) => {
   const navigation = useNavigation();
 
   const goToPlay = (id) => {
-    navigation.navigate("Play", {
-      id: id,
-    });
+    navigation.navigate("Play", {});
   };
 
   const renderItem = ({ item }) => {
