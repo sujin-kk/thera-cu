@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   View,
   Text,
@@ -24,7 +24,12 @@ const data = ApiService().getMeditationList().list;
 const Search = () => {
   const [isPressed, setIsPressed] = useState([false, false, false, false, false, false, false, false, false]);
   const [selectedTag, setSelectedTag] = useState([]);
+  const [searchTitle, setSearchTitle] = useState('');
+  const inputRef = useRef();
+
   const onPress = (idx) => {
+    inputRef.current.clear();
+    setSearchTitle('');
     const selected = isPressed.map((is, index) => {
       if (idx === index) is = !is;
       return is;
@@ -35,16 +40,25 @@ const Search = () => {
     else setSelectedTag(selectedTag.filter(tag => tag != pressed));
   }
 
-  const searchResult = data.map((d)=>{
-    return d.tag.filter(h=> selectedTag.includes(h));
+  const filteredTag = data.map((d) => {
+    return d.tag.filter(h => selectedTag.includes(h)) 
   })
-  const searchData = [];
-  for(let i = 0; i<searchResult.length ;i++){
-    if(searchResult[i].length != 0){
-      searchData.push(data[i]);
-    }
+  let byTag = [];
+  for(let i = 0; i < filteredTag.length ;i++){
+    if(filteredTag[i].length > 0) byTag.push(true);
+    else byTag.push(false)
   }
 
+  const searchResult = data.map((d, idx) => {
+    if(byTag[idx]){
+      if(searchTitle == '') return true;
+      else return d.name.includes(searchTitle) && searchTitle != '';
+    }
+    else{
+      if(searchTitle == '') return false;
+      else return d.name.includes(searchTitle) && searchTitle != '';
+    }
+  })
 
   return (
     <SearchView>
@@ -56,8 +70,10 @@ const Search = () => {
       <SearchBarWrap>
         <SearchIcon source={require('../assets/pngIcon/ic_search_bar.png')} />
         <SearchBar
-          placeholder='검색어를 입력하세요.'
-          placeholderTextColor='#C4C4C4'>
+          placeholder='제목을 입력하세요.'
+          placeholderTextColor='#C4C4C4'
+          onChangeText = {text => setSearchTitle(text)}
+          ref = {inputRef}>
         </SearchBar>
       </SearchBarWrap>
 
@@ -72,18 +88,18 @@ const Search = () => {
 
       <Line></Line>
 
-      {selectedTag.length == 0 ?
+      {!searchResult.includes(true) ?
         (<View style={{ flex: 1, justifyContent: "center" }}>
           <Text style={{ fontSize: 16, color: '#999999', textAlign: "center" }}>해시태그를 통한 검색이 가능해요!</Text>
         </View>) :
         (<View style={{ flex: 1 }}>
           <Text style={{ fontSize: 16, fontWeight: "bold", marginLeft: 30, marginBottom: 10 }}>
-            {selectedTag.toString()}에 해당하는 명상 리스트</Text>
+            {selectedTag.length != 0 ? selectedTag.toString() : searchTitle.toString()} 에 해당하는 명상 리스트</Text>
           <ScrollView contentContainerStyle={{ flexGrow: 1 }} >
             <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
-              {searchData.map(m => (
-                <SearchList data={m} tag={selectedTag}></SearchList>
-              ))}
+              {data.map((m, idx)=> 
+                searchResult[idx]? (<SearchList data={m} tag={selectedTag}></SearchList>) : null
+              )}
             </View>
           </ScrollView>
         </View>)}
