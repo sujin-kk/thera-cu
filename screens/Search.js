@@ -124,6 +124,7 @@ const Header = styled.View`
 const HeaderText = styled.Text`
   font-size: 20px;
   font-weight: bold;
+  color:black;
   marginTop: ${statusBarHeight}px;
   marginLeft: 25px;
 `;
