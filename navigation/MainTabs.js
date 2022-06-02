@@ -20,7 +20,7 @@ const MainTabs = () => {
   return (
     <Tab.Navigator
       sceneContainerStyle={{}}
-      initialRouteName="Like"
+      initialRouteName="Home"
       screenOptions={{
         unmountOnBlur: true, // caching, not fetch again
         headerShown: false,
