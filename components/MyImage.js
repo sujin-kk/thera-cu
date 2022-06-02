@@ -17,7 +17,7 @@ const MyImage = ({ path }) => {
           backgroundColor:"#F9FAFF",
           width: 375, 
           height: 120,
-
+          left:17,
         }}
         source={require("../assets/pngImage/ic_list_frame.png")}
       />
@@ -29,7 +29,7 @@ const MyImage = ({ path }) => {
           height: 85,
           position: "absolute",
           top:15,
-          left:17,
+          left:34,
         }}
         source={path}
       />
@@ -40,7 +40,7 @@ const MyImage = ({ path }) => {
           height: 16,
           position: "absolute",
           top:75,
-          left:82,
+          left:99,
         }}
         source={require("../assets/pngIcon/ic_play.png")}
       />
@@ -52,6 +52,7 @@ const MyImage = ({ path }) => {
           resizeMode:"contain",
           width:51,
           height:28,
+          left:17,
         }}
         source={isAlarm?require("../assets/pngImage/ic_list_on.png"):require("../assets/pngImage/ic_list_off.png")}
         />
