@@ -1,5 +1,5 @@
 function ApiService() {
-
+  
     const API = {
       getMeditationList: () => {
         return meditations;
@@ -34,7 +34,7 @@ function ApiService() {
           tag: ["휴식", "ASMR"],
           path: require("../assets/pngImage/img_cover1.png"),
           likeNum: 3753,
-          isLike: true,
+          isLike: false,
           detail: "당신의 편안한 휴식을 도와줍니다.\n명상과 함께 보라색의 아름다운 밤하늘을 여행하세요."
         },
         {
@@ -268,4 +268,3 @@ function ApiService() {
   }
   
   export default ApiService;
-  
