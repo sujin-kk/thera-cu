@@ -5,7 +5,6 @@ import Search from "../screens/Search";
 import Like from "../screens/Like";
 import MyPage from "../screens/MyPage";
 import color from "../theme/color";
-import { Image } from "react-native";
 import HomeActive from "../assets/svgIcon/HomeActive";
 import HomeInactive from "../assets/svgIcon/HomeInactive";
 import SearchInactive from "../assets/svgIcon/SearchInactive";
