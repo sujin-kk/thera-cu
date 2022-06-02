@@ -1,9 +1,12 @@
-import React, {Component} from 'react';
-import { FlatList, View, Text} from "react-native";
+import React from 'react';
+import { FlatList, View, Text,Image,TouchableOpacity} from "react-native";
 import LikeImage from "./LikeImage";
 import styled from "styled-components/native";
+import { useNavigation } from "@react-navigation/native";
 
 export default LikeList = ({ title, data }) => {
+  const navigation = useNavigation();
+
   const renderItem = ({ item }) => {
     
     const hashlist = item.tag.map((tag)=><CardHash style={{
@@ -26,7 +29,21 @@ export default LikeList = ({ title, data }) => {
          
         }}
       >
+
+      <TouchableOpacity activeOpacity={1}
+        style={{
+          flexDirection: "column",
+          width: 120,
+          height: "100%",
+        }}
+        onPress={() => {
+          navigation.navigate("Play", {
+            id: item.id,
+          });
+        }}
+      >
         <LikeImage style={{}} path={item.path} />
+      </TouchableOpacity>
 
         <Text style={{ 
           position: "absolute",
@@ -47,6 +64,8 @@ export default LikeList = ({ title, data }) => {
           fontWeight: "100",
           color:"black",
           }}>{item.detail}</Text>
+        
+        
       </View>
     );
   };

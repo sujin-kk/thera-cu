@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
-import { FlatList, View, Text} from "react-native";
-
+import { FlatList, View, Text,TouchableOpacity} from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import MyImage from "./MyImage";
 
 export default MyList = ({ title, data }) => {
+  const navigation = useNavigation();
+
   const renderItem = ({ item }) => {
     var hour = item.time.charAt(0)+item.time.charAt(1)
     var time = item.time.charAt(3)+item.time.charAt(4)
@@ -11,14 +13,27 @@ export default MyList = ({ title, data }) => {
       <View
         style={{
           flexDirection: "column",
-          alignItems:"center",
           position:"absolute",
           marginTop:15,
           width: "100%",
 
         }}
       >
+
+      <TouchableOpacity activeOpacity={1}
+        style={{
+          //flexDirection: "column",
+          width: 120,
+          height: "100%",
+        }}
+        onPress={() => {
+          navigation.navigate("Play", {
+            id: item.id,
+          });
+        }}
+      >
         <MyImage style={{}} path={item.path} />
+      </TouchableOpacity>
 
         <Text style={{ 
           position: "absolute",

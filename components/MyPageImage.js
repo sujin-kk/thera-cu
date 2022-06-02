@@ -1,20 +1,20 @@
 import React from "react";
 import { Image, View } from "react-native";
 
-const HomeImage = ({ path }) => {
+const MyPageImage = ({ path }) => {
   return (
-    <View style={{ width: 120, height: 120 }}>
+    <View style={{ width: 120, height: 120, }}>
       <Image
         style={{ borderRadius: 7, width: "100%", height: "100%" }}
         source={path}
       />
       <Image
         style={{
-          width: 14,
-          height: 16,
+          width: 20,
+          height: 23,
           position: "relative",
-          bottom: 26,
-          left:95,
+          bottom: 70,
+          left:53,
         }}
         source={require("../assets/pngIcon/ic_play.png")}
       />
@@ -22,4 +22,4 @@ const HomeImage = ({ path }) => {
   );
 };
 
-export default HomeImage;
+export default MyPageImage;

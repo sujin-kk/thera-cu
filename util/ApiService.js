@@ -20,6 +20,9 @@ function ApiService() {
       getTrendList: () => {
         return trendMeditations;
       },
+      getRecentList: () => {
+        return recentMeditations;
+      }
       
     };
   
@@ -221,6 +224,42 @@ function ApiService() {
           path: require("../assets/pngImage/img_cover5.png"),
           likeNum: 89,
           isLike: false,
+        },
+      ],
+    };
+
+    const recentMeditations = {
+      list: [
+        {
+          id: 5,
+          name: "혼자라고 생각말기",
+          tag: ["휴식", "안정"],
+          path: require("../assets/pngImage/img_cover3.png"),
+          likeNum: 283,
+        },
+        {
+          id: 1,
+          name: "보라색 밤하늘",
+          tag: ["휴식", "ASMR"],
+          path: require("../assets/pngImage/img_cover1.png"),
+          likeNum: 3753,
+        },
+        {
+          id: 3,
+          name: "파리의 밤",
+          tag: ["잔잔한", "ASMR", "여행"],
+          path: require("../assets/pngImage/img_cover4.png"),
+          likeNum: 1901,
+          isLike: false,
+          detail: "파리의 밤.\n명상 설명"
+        },
+        {
+          id: 4,
+          name: "거품과 함께 사라지다",
+          tag: ["휴식", "잔잔함", "치유"],
+          path: require("../assets/pngImage/img_cover2.png"),
+          likeNum: 3753,
+          isLike: true,
         },
       ],
     };

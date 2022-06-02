@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, StatusBar, TouchableOpacity } from "react-native";
 import { getStatusBarHeight } from "react-native-status-bar-height";
 import BackIc from "../assets/svgIcon/BackIc";
-import { Platform } from "react-native";
+import { Platform } from 'react-native';
 import GlobalStyled from "../theme/GlobalStyled";
 import { useNavigation } from "@react-navigation/native";
 
