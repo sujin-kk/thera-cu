@@ -25,7 +25,7 @@ function ApiService() {
         tag: ["휴식", "ASMR"],
         path: require("../assets/pngImage/img_cover1.png"),
         likeNum: 3753,
-        isLike: true,
+        isLike: false,
       },
       {
         id: 2,

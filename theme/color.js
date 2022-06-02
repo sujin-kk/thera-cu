@@ -1,5 +1,6 @@
 const color = {
   MAIN_PURPLE: "#614692",
+  SUB_PURPLE: "#CABCEA",
   GRAY_900: "#1A1A1A",
   GRAY_800: "#333333",
   GRAY_700: "#4D4D4D",
@@ -11,6 +12,7 @@ const color = {
   GRAY_100: "#F2F2F2",
   WHITE: "#FFFFFF",
   BACKGROUND: "#F9FAFF",
+  BTN_GRAY: "#E7E8EB",
 };
 
 export default color;
