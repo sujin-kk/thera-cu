@@ -14,7 +14,7 @@ const HomeImage = ({ path }) => {
           height: 16,
           position: "relative",
           bottom: 26,
-          left:95,
+          left: 95,
         }}
         source={require("../assets/pngIcon/ic_play.png")}
       />

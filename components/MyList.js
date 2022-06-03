@@ -1,93 +1,60 @@
-import React, {Component} from 'react';
-import { FlatList, View, Text,TouchableOpacity} from "react-native";
-import { useNavigation } from "@react-navigation/native";
-import MyImage from "./MyImage";
+import React, { Component, useEffect, useState } from "react";
+import { Text, TouchableOpacity } from "react-native";
+import GlobalStyled from "../theme/GlobalStyled";
+import { SwipeListView } from "react-native-swipe-list-view";
+import { widthPercentageToDP as wp } from "react-native-responsive-screen";
+import color from "../theme/color";
+import LikePageRow from "./LikePageRow";
 
 export default MyList = ({ title, data }) => {
-  const navigation = useNavigation();
+  const [myData, setMyData] = useState([]);
+
+  useEffect(() => {
+    setMyData(data);
+  }, []);
 
   const renderItem = ({ item }) => {
-    var hour = item.time.charAt(0)+item.time.charAt(1)
-    var time = item.time.charAt(3)+item.time.charAt(4)
+    return <LikePageRow item={item} type={"myList"} />;
+  };
+
+  const renderHiddenItem = ({ item }) => {
     return (
-      <View
+      <GlobalStyled.ViewRow
         style={{
-          flexDirection: "column",
-          position:"absolute",
-          marginTop:15,
-          width: "100%",
-        }}
-      >
-
-      <TouchableOpacity activeOpacity={1}
-        style={{
-          //flexDirection: "column",
           width: 120,
-          height: "100%",
+          height: wp(28),
+          backgroundColor: color.RED,
+          borderRadius: 10,
+          marginVertical: 10,
+          paddingHorizontal: 10,
+          alignSelf: "flex-end",
         }}
-        onPress={() => {
-          navigation.navigate("Play", {
-            id: item.id,
-          });
-        }}
+        as={TouchableOpacity}
       >
-        <MyImage style={{}} path={item.path} />
-      </TouchableOpacity>
-
-        <Text style={{ 
-          position: "absolute",
-          top:30,
-          left:140,
-          fontSize: 17,
-          fontWeight: "400",
-          color:"black",
-          }}>{item.name}</Text>
-
-        <Text style={{ 
-          position: "absolute",
-          bottom:30,
-          left:140,
-          fontSize: 20,
-          fontWeight: "400",
-          color:"black",
-        }}>{(()=>{
-            if(hour>=12) return "오후";
-            else return "오전";
-        })()}</Text>
-
-        <Text style={{ 
-          position: "absolute",
-          bottom:28,
-          left:185,
-          fontSize: 25,
-          fontWeight: "500",
-          letterSpacing:4,
-          color:"black",
-        }}>{(()=>{
-            if(hour>=12) return hour-12+":"+time;
-            else return item.time;
-        })()}</Text>
-
-      </View>
+        <Text
+          style={{ color: color.WHITE, marginStart: 20, fontWeight: "bold" }}
+        >
+          삭제
+        </Text>
+      </GlobalStyled.ViewRow>
     );
   };
 
-  const HSeperator = () => {
-    return <View style={{ height:135}}>
-      
-    </View>;
-    
-  };
-
   return (
-      <FlatList
-        vertical
-        persistentScrollbar={true}
-        data={data}
+    <GlobalStyled.ViewCol>
+      <SwipeListView
+        bounces={false}
+        data={myData}
         renderItem={renderItem}
-        ItemSeparatorComponent={HSeperator}
-        ListFooterComponent={HSeperator}
-        keyExtractor={(item) => item.id + ""}
+        renderHiddenItem={renderHiddenItem}
+        rightOpenValue={-100}
+        stopRightSwipe={-100}
+        previewOpenValue={-40}
+        friction={10}
+        tension={-2}
+        previewOpenDelay={2000}
+        style={{ marginTop: 20 }}
       />
+    </GlobalStyled.ViewCol>
   );
 };
