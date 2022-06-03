@@ -30,6 +30,7 @@
     "react-native-simple-tablayout": "^0.0.5",
     "react-native-slider": "^0.11.0",
     "react-native-snap-carousel": "^3.9.1",
+    "react-native-splash-screen": "^3.3.0",
     "react-native-status-bar-height": "^2.6.0",
     "react-native-svg": "^12.3.0",
     "react-native-tab-view": "^3.1.1",
