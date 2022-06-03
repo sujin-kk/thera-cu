@@ -14,6 +14,7 @@ import { getStatusBarHeight } from "react-native-status-bar-height";
 import styled from "styled-components/native";
 import SearchList from "../components/SearchList";
 import ApiService from "../util/ApiService";
+import shadow from "../theme/shadow";
 
 const statusBarHeight =
   Platform.OS === 'ios' ? getStatusBarHeight(true) : StatusBar.currentHeight;
@@ -173,6 +174,7 @@ const HashTag = styled.TouchableOpacity`
   shadow-offset: 0px 1px;
   shadow-radius: 5px;
   shadow-opacity: 0.1;
+  elevation: 5;
 `;
 
 const Line = styled.View`
@@ -182,5 +184,6 @@ const Line = styled.View`
   shadow-offset: 0px 2px;
   shadow-radius: 3px;
   shadow-opacity: 0.15;
+  elevation: 3;
 `;
 export default Search;
