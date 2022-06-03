@@ -25,11 +25,11 @@ export default HomeCarousel = ({ data }) => {
         data={data}
         renderItem={renderItem}
         sliderWidth={wp(90)}
-        itemWidth={120}
+        itemWidth={wp(30)}
         loop={true}
         inactiveSlideShift={0}
-        inactiveSlideScale={0.95}
-        inactiveSlideOpacity={0.7}
+        inactiveSlideScale={0.8}
+        inactiveSlideOpacity={0.5}
         enableMomentum={true}
       />
     </View>
