@@ -13,6 +13,7 @@ const color = {
   WHITE: "#FFFFFF",
   BACKGROUND: "#F9FAFF",
   BTN_GRAY: "#E7E8EB",
+  RED: "#F25555",
 };
 
 export default color;
