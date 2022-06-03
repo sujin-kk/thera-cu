@@ -5,6 +5,7 @@ import { SwipeListView } from "react-native-swipe-list-view";
 import { widthPercentageToDP as wp } from "react-native-responsive-screen";
 import color from "../theme/color";
 import LikePageRow from "./LikePageRow";
+import shadow from "../theme/shadow";
 
 export default MyList = ({ title, data }) => {
   const [myData, setMyData] = useState([]);
@@ -17,7 +18,7 @@ export default MyList = ({ title, data }) => {
     return <LikePageRow item={item} type={"myList"} />;
   };
 
-  const renderHiddenItem = ({ item }) => {
+  const renderHiddenItem = ({ item, idx }) => {
     return (
       <GlobalStyled.ViewRow
         style={{
@@ -30,6 +31,15 @@ export default MyList = ({ title, data }) => {
           alignSelf: "flex-end",
         }}
         as={TouchableOpacity}
+        onPress={() => {
+          let temp = [...myData];
+          temp.map((t, tidx) => {
+            if (t.id === item.id) {
+              temp.splice(tidx, 1);
+            }
+          });
+          setMyData(temp);
+        }}
       >
         <Text
           style={{ color: color.WHITE, marginStart: 20, fontWeight: "bold" }}
