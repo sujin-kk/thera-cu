@@ -1,6 +1,5 @@
 import React, { Component, useEffect, useState } from "react";
-import { FlatList, View, Text, TouchableOpacity, Image } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import { Text, TouchableOpacity } from "react-native";
 import GlobalStyled from "../theme/GlobalStyled";
 import { SwipeListView } from "react-native-swipe-list-view";
 import { widthPercentageToDP as wp } from "react-native-responsive-screen";

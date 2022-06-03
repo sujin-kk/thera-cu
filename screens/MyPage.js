@@ -23,7 +23,7 @@ const windowWidth = Dimensions.get('window').width;
 const MyPage = () => {
   const navigation = useNavigation();
   const recentData = ApiService().getRecentList().list;
-
+  
   return (
     <MyPageView>
       <HeaderText>내 정보</HeaderText>
@@ -60,7 +60,7 @@ const MyPage = () => {
           source={require("../assets/pngImage/ic_like_active.png")}
         />
         <Text style={{fontSize:17,fontWeight:"800",top:1,left:12,color:"black"}}>좋아요 표시한 명상</Text>
-        <TouchableOpacity onPress={() => navigation.navigate('Like')}>
+        <TouchableOpacity onPress={() => navigation.navigate(Like)}>
           <Image
             style={{
               resizeMode:"contain",
@@ -86,7 +86,7 @@ const MyPage = () => {
           source={require("../assets/pngImage/ic_list.png")}
         />
         <Text style={{fontSize:17,fontWeight:"800",top:2,left:12,color:"black"}}>나의 명상 리스트</Text>
-        <TouchableOpacity onPress={() => navigation.navigate('Like')}>
+        <TouchableOpacity onPress={() => navigation.navigate(Like)}>
           <Image
             style={{
               resizeMode:"contain",

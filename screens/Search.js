@@ -15,6 +15,7 @@ import styled from "styled-components/native";
 import SearchList from "../components/SearchList";
 import ApiService from "../util/ApiService";
 import shadow from "../theme/shadow";
+import { widthPercentageToDP as wp} from "react-native-responsive-screen";
 
 const statusBarHeight =
   Platform.OS === "ios" ? getStatusBarHeight(true) : StatusBar.currentHeight;
@@ -96,7 +97,7 @@ const Search = () => {
         ></SearchBar>
       </SearchBarWrap>
 
-      <HashTagWrap>
+      <HashTagWrap style={{marginLeft:wp(10)}}>
         {hashTagList.map((tag, idx) => (
           <HashTag
             style={{ backgroundColor: isPressed[idx] ? "#614692" : "white" }}
@@ -129,33 +130,18 @@ const Search = () => {
 
       <Line></Line>
 
-      {!searchResult.includes(true) ? (
-        <View style={{ flex: 1, justifyContent: "center" }}>
-          <Text style={{ fontSize: 16, color: "#999999", textAlign: "center" }}>
-            해시태그를 통한 검색이 가능해요!
-          </Text>
-        </View>
-      ) : (
-        <View style={{ flex: 1 }}>
-          <Text
-            style={{
-              fontSize: 16,
-              fontWeight: "bold",
-              marginLeft: 30,
-              marginBottom: 10,
-            }}
-          >
-            {selectedTag.length != 0
-              ? selectedTag.toString()
-              : searchTitle.toString()}{" "}
-            에 해당하는 명상 리스트
-          </Text>
-          <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
-            <View style={{ flexDirection: "row", flexWrap: "wrap" }}>
-              {data.map((m, idx) =>
-                searchResult[idx] ? (
-                  <SearchList key={idx} data={m} tag={selectedTag}></SearchList>
-                ) : null
+      {!searchResult.includes(true) ?
+        (<View style={{ flex: 1, justifyContent: "center" }}>
+          <Text style={{ fontSize: 16, color: '#999999', textAlign: "center" }}>해시태그를 통한 검색이 가능해요!</Text>
+        </View>) :
+        (<View style={{ flex: 1 }}>
+          <Text style={{ color:"#333333",fontSize: 16, fontWeight: "bold", marginLeft: wp(10), marginBottom: 10,marginTop:10 }}>
+            {selectedTag.length != 0 ? selectedTag.toString() : searchTitle.toString()} 에 해당하는 명상 리스트</Text>
+          <ScrollView contentContainerStyle={{ flexGrow: 1 }} >
+            <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
+              {data.map((m, idx)=> 
+                searchResult[idx]? (<SearchList data={m} tag={selectedTag}></SearchList>) : null
+   
               )}
             </View>
           </ScrollView>
@@ -215,7 +201,7 @@ const HashTagWrap = styled.View`
   justify-content: space-around;
   flex-wrap: wrap;
   margin-top: 15px;
-  margin-left: 36px;
+
 `;
 
 const HashTag = styled.TouchableOpacity`
