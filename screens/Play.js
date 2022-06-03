@@ -197,7 +197,7 @@ const Play = (props) => {
               }
             >
               {day.map((d) => {
-                return <Picker.Item label={d} value={d} />;
+                return <Picker.Item key={d} label={d} value={d} />;
               })}
             </Picker>
             <Picker
@@ -209,7 +209,7 @@ const Play = (props) => {
               }
             >
               {hour.map((h) => {
-                return <Picker.Item label={h} value={h} />;
+                return <Picker.Item key={h} label={h} value={h} />;
               })}
             </Picker>
             <Picker
@@ -221,7 +221,7 @@ const Play = (props) => {
               }
             >
               {minute.map((m) => {
-                return <Picker.Item label={m} value={m} />;
+                return <Picker.Item key={m} label={m} value={m} />;
               })}
             </Picker>
           </GlobalStyled.ViewRow>
