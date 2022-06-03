@@ -9,11 +9,17 @@ import PlayNextIc from "../assets/svgIcon/PlayNextIc";
 import PlayIc from "../assets/svgIcon/PlayIc";
 import TagButton from "../components/TagButton";
 import LikeActive from "../assets/svgIcon/LikeActive";
-import WhtieBtn from "../components/WhiteBtn";
+import WhiteBtn from "../components/WhiteBtn";
 import shadow from "../theme/shadow";
 import Slider from "react-native-slider";
 import LikeGray from "../assets/svgIcon/LikeGray";
 import PauseIc from "../assets/svgIcon/PauseIc";
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from "react-native-responsive-screen";
+import Modal from "react-native-modal";
+import PurpleBtn from "../components/PurpleBtn";
 
 const Play = (props) => {
   const data = ApiService().getMeditationList().list;
@@ -24,6 +30,15 @@ const Play = (props) => {
   const [isLike, setIsLike] = useState(meditation.isLike);
   const [likeNum, setLikeNum] = useState(meditation.likeNum);
   const [isPlay, setIsPlay] = useState(false);
+  const [isModalVisible, setModalVisible] = useState(false);
+
+  const openModal = () => {
+    setModalVisible(true);
+  };
+
+  const closeModal = () => {
+    setModalVisible(false);
+  };
 
   return (
     <GlobalStyled.ViewCol
@@ -36,8 +51,8 @@ const Play = (props) => {
       <Image
         style={{
           marginTop: 50,
-          width: "65%",
-          height: "30%",
+          width: wp(65),
+          height: wp(65),
           borderRadius: 10,
         }}
         source={meditation.path}
@@ -91,8 +106,9 @@ const Play = (props) => {
             ...shadow.low,
           }}
           as={TouchableOpacity}
+          onPress={openModal}
         >
-          <WhtieBtn name={"리스트 추가"} />
+          <WhiteBtn name={"리스트 추가"} />
         </GlobalStyled.ViewRow>
       </GlobalStyled.ViewRow>
 
@@ -135,6 +151,39 @@ const Play = (props) => {
         thumbTintColor={color.SUB_PURPLE}
         thumbStyle={{ width: 9, height: 14 }}
       />
+
+      <Modal isVisible={isModalVisible} onBackdropPress={closeModal}>
+        <GlobalStyled.ViewCol
+          style={{
+            width: wp(80),
+            height: hp(28),
+            backgroundColor: color.BACKGROUND,
+            borderRadius: 30,
+            alignSelf: "center",
+            justifyContent: "flex-start",
+            paddingHorizontal: 15,
+          }}
+        >
+          <GlobalStyled.ViewRow style={{ flex: 3 }}></GlobalStyled.ViewRow>
+          <GlobalStyled.ViewRow
+            style={{
+              flex: 1,
+              justifyContent: "flex-end",
+              marginBottom: 12,
+            }}
+          >
+            <TouchableOpacity
+              style={{ width: 70, ...shadow.middle, marginEnd: 12 }}
+              onPress={closeModal}
+            >
+              <WhiteBtn name={"취소"} />
+            </TouchableOpacity>
+            <TouchableOpacity style={{ width: 70, ...shadow.middle }}>
+              <PurpleBtn name={"저장"} />
+            </TouchableOpacity>
+          </GlobalStyled.ViewRow>
+        </GlobalStyled.ViewCol>
+      </Modal>
     </GlobalStyled.ViewCol>
   );
 };
