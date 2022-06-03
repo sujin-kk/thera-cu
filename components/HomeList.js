@@ -52,7 +52,6 @@ export default HomeList = ({ title, data }) => {
       <FlatList
         horizontal
         showsHorizontalScrollIndicator={false}
-        keyExtractor={(item, index) => index.toString()}
         data={data}
         renderItem={renderItem}
         ItemSeparatorComponent={HSeperator}

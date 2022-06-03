@@ -14,6 +14,7 @@ import shadow from "../theme/shadow";
 import Slider from "react-native-slider";
 import LikeGray from "../assets/svgIcon/LikeGray";
 import PauseIc from "../assets/svgIcon/PauseIc";
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 const Play = (props) => {
   const data = ApiService().getMeditationList().list;
@@ -35,9 +36,9 @@ const Play = (props) => {
       <BackHeader />
       <Image
         style={{
-          marginTop: 50,
-          width: "65%",
-          height: "30%",
+          marginTop: 30,
+          width: wp(60),
+          height: wp(60),
           borderRadius: 10,
         }}
         source={meditation.path}
