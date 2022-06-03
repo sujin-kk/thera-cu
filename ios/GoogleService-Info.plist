@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>528404137135-4skurp9uq703tcpb76h5fujmoecn0uvv.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.528404137135-4skurp9uq703tcpb76h5fujmoecn0uvv</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBK09b0FC3keBTmdsyaPm_OsT6q6qMIPUk</string>
+	<key>GCM_SENDER_ID</key>
+	<string>528404137135</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>org.reactjs.native.example.TheraCu</string>
+	<key>PROJECT_ID</key>
+	<string>theracu-1d9c4</string>
+	<key>STORAGE_BUCKET</key>
+	<string>theracu-1d9c4.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:528404137135:ios:193be337a37869ec89c05a</string>
+</dict>
+</plist>
