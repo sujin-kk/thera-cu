@@ -14,12 +14,8 @@ const Home = () => {
   return (
     <ScrollView
       style={{
-        flex: 1,
         flexDirection: "column",
         backgroundColor: color.BACKGROUND,
-      }}
-      contentContainerStyle={{
-        flex: 1,
       }}
     >
       <LinearGradient
@@ -30,7 +26,7 @@ const Home = () => {
           style={{ width: 120, height: 40, marginTop: 40 }}
           source={require("../assets/pngImage/img_logo.png")}
         />
-        <Text style={{ color: color.GRAY_800, fontSize: 15, marginTop: 60 }}>
+        <Text style={{ color: color.GRAY_800, fontSize: 15, marginTop: 30 }}>
           당신은 지금까지
         </Text>
 
@@ -57,7 +53,7 @@ const Home = () => {
       </LinearGradient>
 
       <HomeList title="당신의 편안한 마음을 위한 명상 리스트" data={data} />
-      <View style={{ width: "100%", height: 30 }}></View>
+      <View style={{ width: "100%", height: 10 }}></View>
       <HomeList title="인기있는 명상 음악" data={trendData} />
     </ScrollView>
   );

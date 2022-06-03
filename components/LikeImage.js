@@ -1,5 +1,6 @@
 import React,{useCallback, useState} from "react";
 import { Image, View,TouchableOpacity} from "react-native";
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 import ApiService from "../util/ApiService";
 
@@ -19,9 +20,9 @@ const LikeImage = ({ path }) => {
         style={{ 
           borderRadius: 7,
           backgroundColor:"#F9FAFF",
-          width: 375, 
-          height: 120,
-          left:17,
+          width: wp(93), 
+          height: wp(28),
+          left:wp(4),
 
         }}
         source={require("../assets/pngImage/ic_list_frame.png")}
