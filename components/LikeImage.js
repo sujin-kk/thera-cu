@@ -50,7 +50,7 @@ const LikeImage = ({ path }) => {
         source={require("../assets/pngIcon/ic_play.png")}
       />
 
-      <View style={{width:22,height:20,position: "absolute",top:22,right:5}}>
+      <View style={{width:22,height:20,position: "absolute",top:wp(5),right:wp(1)}}>
         <TouchableOpacity onPress={changeImage}>
         <Image
           style={{

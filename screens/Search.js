@@ -95,7 +95,7 @@ const Search = () => {
           <Text style={{ fontSize: 16, color: '#999999', textAlign: "center" }}>해시태그를 통한 검색이 가능해요!</Text>
         </View>) :
         (<View style={{ flex: 1 }}>
-          <Text style={{ color:"#333333",fontSize: 16, fontWeight: "bold", marginLeft: 30, marginBottom: 10,marginTop:10 }}>
+          <Text style={{ color:"#333333",fontSize: 16, fontWeight: "bold", marginLeft: wp(10), marginBottom: 10,marginTop:10 }}>
             {selectedTag.length != 0 ? selectedTag.toString() : searchTitle.toString()} 에 해당하는 명상 리스트</Text>
           <ScrollView contentContainerStyle={{ flexGrow: 1 }} >
             <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
