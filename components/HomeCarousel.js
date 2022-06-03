@@ -22,9 +22,6 @@ export default HomeCarousel = ({ data }) => {
     <View style={{ flex: 1, marginTop: 35, marginBottom:40 }}>
       <Carousel
         layout={"default"}
-        // ref={(c) => {
-        //   this._carousel = c;
-        // }}
         data={data}
         renderItem={renderItem}
         sliderWidth={wp(90)}
