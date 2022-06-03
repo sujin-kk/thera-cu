@@ -5,6 +5,7 @@ import LinearGradient from "react-native-linear-gradient";
 import HomeCarousel from "../components/HomeCarousel";
 import HomeList from "../components/HomeList";
 import ApiService from "../util/ApiService";
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 const Home = () => {
   const data = ApiService().getMeditationList().list;
@@ -53,7 +54,7 @@ const Home = () => {
       </LinearGradient>
 
       <HomeList title="당신의 편안한 마음을 위한 명상 리스트" data={data} />
-      <View style={{ width: "100%", height: 10 }}></View>
+      <View style={{ width: "100%", height: wp(5) }}></View>
       <HomeList title="인기있는 명상 음악" data={trendData} />
     </ScrollView>
   );

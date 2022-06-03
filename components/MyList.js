@@ -16,7 +16,6 @@ export default MyList = ({ title, data }) => {
           position:"absolute",
           marginTop:15,
           width: "100%",
-
         }}
       >
 
@@ -69,8 +68,6 @@ export default MyList = ({ title, data }) => {
             else return item.time;
         })()}</Text>
 
-        
-        
       </View>
     );
   };

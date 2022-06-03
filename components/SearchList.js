@@ -6,6 +6,7 @@ import {
   Image,
   Dimensions,
 } from "react-native";
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 
 const windowWidth = Dimensions.get('window').width;
@@ -15,10 +16,10 @@ const SearchList = ({ data }) => {
 
   return (
 
-      <Card>
-        <Image source={data.path} style={{width: 140, height: 131, borderRadius:7 }}></Image>
+      <Card style={{width:wp(35),height:wp(50),marginLeft:wp(10)}}>
+        <Image source={data.path} style={{width: wp(35), height:wp(32), borderRadius:7 }}></Image>
         <Image source={require('../assets/pngIcon/ic_play.png')} style={{ position: "absolute", right: 10, top: 100 }}></Image>
-        <Text style={{ fontSize: 13, marginLeft: 5, marginTop: 5 }}>{data.name}</Text>
+        <Text style={{ color:"#333333",fontSize: 13, marginLeft: 5, marginTop: 5 }}>{data.name}</Text>
         <View style={{ flexDirection: 'row', marginLeft: 5, flexWrap: "wrap", overflow: "hidden" }}>
           {hash.map(mtag => (
             <CardHash key={mtag}>
@@ -34,11 +35,8 @@ const SearchList = ({ data }) => {
 }
 
 const Card = styled.View`
-  width: 140px;
-  height: 200px;
   background-color: #FFF;
   border-radius: 7px;
-  margin-left: 35px;
   margin-bottom: 30px; 
   shadow-color: black;
   shadow-offset: 0px 4px;

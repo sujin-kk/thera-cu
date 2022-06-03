@@ -19,6 +19,7 @@ import Modal from "react-native-modal";
 import PurpleBtn from "../components/PurpleBtn";
 import { Picker } from "@react-native-picker/picker";
 
+
 const Play = (props) => {
   const data = ApiService().getMeditationList().list;
   const meditation = data.filter(

@@ -3,6 +3,7 @@ import { FlatList, View, Text, Image, TouchableOpacity } from "react-native";
 import color from "../theme/color";
 import HomeImage from "./HomeImage";
 import { useNavigation } from "@react-navigation/native";
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 export default HomeList = ({ title, data }) => {
   const navigation = useNavigation();
