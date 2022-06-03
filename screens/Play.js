@@ -36,8 +36,8 @@ const Play = (props) => {
       <Image
         style={{
           marginTop: 50,
-          width: 260,
-          height: 260,
+          width: "65%",
+          height: "30%",
           borderRadius: 10,
         }}
         source={meditation.path}
@@ -48,7 +48,7 @@ const Play = (props) => {
 
       <GlobalStyled.ViewRow
         style={{
-          height: 44,
+          height: "auto",
           width: "auto",
           justifyContent: "space-around",
           marginTop: 10,
