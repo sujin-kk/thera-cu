@@ -14,7 +14,10 @@ import shadow from "../theme/shadow";
 import Slider from "react-native-slider";
 import LikeGray from "../assets/svgIcon/LikeGray";
 import PauseIc from "../assets/svgIcon/PauseIc";
-import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from "react-native-responsive-screen";
 import Modal from "react-native-modal";
 import PurpleBtn from "../components/PurpleBtn";
 import { Picker } from "@react-native-picker/picker";
@@ -92,7 +95,7 @@ const Play = (props) => {
         }}
       >
         {meditation.tag.map((name) => {
-          return <TagButton id={name} name={name} />;
+          return <TagButton id={name} name={name} type={"default"} />;
         })}
       </GlobalStyled.ViewRow>
 

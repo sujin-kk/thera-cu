@@ -142,6 +142,7 @@ function ApiService() {
         path: require("../assets/pngImage/img_cover1.png"),
         likeNum: 3753,
         isAlarm: true,
+        day: "오전",
         time: "07:50",
       },
       {
@@ -151,6 +152,7 @@ function ApiService() {
         path: require("../assets/pngImage/img_cover5.png"),
         likeNum: 89,
         isAlarm: true,
+        day: "오후",
         time: "13:30",
       },
       {
@@ -160,6 +162,7 @@ function ApiService() {
         path: require("../assets/pngImage/img_cover2.png"),
         likeNum: 3753,
         isAlarm: true,
+        day: "오후",
         time: "22:52",
       },
     ],
