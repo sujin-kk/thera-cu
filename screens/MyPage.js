@@ -13,6 +13,7 @@ import MyPageList from "../components/MyPageList";
 import { getStatusBarHeight } from "react-native-status-bar-height";
 import styled from "styled-components/native";
 import { useNavigation } from "@react-navigation/native";
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import Like from "./Like";
 
 const statusBarHeight =
@@ -66,7 +67,7 @@ const MyPage = () => {
               width:25,
               height:18,
               top:4,
-              left:190,
+              left:wp(46),
             }}
             source={require("../assets/pngImage/ic_goto_list.png")}
           />
@@ -92,7 +93,7 @@ const MyPage = () => {
               width:25,
               height:18,
               top:4,
-              left:203,
+              left:wp(49),
             }}
             source={require("../assets/pngImage/ic_goto_list.png")}
           />

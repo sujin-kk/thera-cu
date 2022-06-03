@@ -11,7 +11,9 @@ import LoginStack from "./navigation/LoginStack";
 const Nav = createNativeStackNavigator();
 
 export default function App() {
+  console.disableYellowBox = true;
   return (
+    
   <NavigationContainer>
     <Nav.Navigator
       screenOptions={{

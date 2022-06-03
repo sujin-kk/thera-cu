@@ -14,10 +14,7 @@ import shadow from "../theme/shadow";
 import Slider from "react-native-slider";
 import LikeGray from "../assets/svgIcon/LikeGray";
 import PauseIc from "../assets/svgIcon/PauseIc";
-import {
-  widthPercentageToDP as wp,
-  heightPercentageToDP as hp,
-} from "react-native-responsive-screen";
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import Modal from "react-native-modal";
 import PurpleBtn from "../components/PurpleBtn";
 import { Picker } from "@react-native-picker/picker";
@@ -75,9 +72,9 @@ const Play = (props) => {
       <BackHeader />
       <Image
         style={{
-          marginTop: 50,
-          width: wp(65),
-          height: wp(65),
+          marginTop: 30,
+          width: wp(60),
+          height: wp(60),
           borderRadius: 10,
         }}
         source={meditation.path}
