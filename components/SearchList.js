@@ -32,16 +32,6 @@ const SearchList = ({ data }) => {
   )
 
 }
-const CardViewWrap = styled.View`
-  width: 140px;
-  background-color: red;
-  margin-left: 20px;
-  margin-bottom: 30px;
-  shadow-color: black;
-  shadow-offset: 0px 4px;
-  shadow-radius: 4px;
-  shadow-opacity: 0.2;
-`;
 
 const Card = styled.View`
   width: 140px;
@@ -54,6 +44,7 @@ const Card = styled.View`
   shadow-offset: 0px 4px;
   shadow-radius: 4px;
   shadow-opacity: 0.2;
+  elevation: 2;
 `;
 
 const CardHash = styled.View`
