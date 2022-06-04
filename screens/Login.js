@@ -29,28 +29,16 @@ const Login = () => {
     try{
       const user = await singIn(info);
       console.log(user);
+      navigation.navigate("MainStack", {
+        screen: "MainTabs",
+      });
     }catch(e){
       const alertMessage = failedMessages[e.code]
       Alert.alert("로그인 실패", alertMessage);
     }
-
-    // navigation.navigate("MainStack", {
-    //   screen: "MainTabs",
-    // });
   };
-  // const signUp = async() => {
-  //   const info = {id, pw};
-  //   try{
-  //     const user = await singUp(info);
-  //     console.log(user);
-  //   }catch(e){
-
-  //   }
-  // }
 
 
-
-  
 
   return (
     <View style={{ width: "100%", height: "100%", backgroundColor: '#F9FAFF', alignItems: 'center', justifyContent: 'center' }}>
@@ -61,7 +49,8 @@ const Login = () => {
         style={{ width: 263, height: 45, backgroundColor: 'white', borderColor: '#c4c4c4', borderRadius: 25, borderWidth: 0.7, borderWidth: 0.7, marginTop: 50, paddingLeft: 20}}>
       </TextInput>
 
-      <TextInput 
+      <TextInput
+        secureTextEntry={true} 
         onChangeText={(text) => {setPw(text)}}
         placeholder="비밀번호"
         style={{ width: 263, height: 45, backgroundColor: 'white', borderColor: '#c4c4c4', borderRadius: 25, borderWidth: 0.7, borderWidth: 0.7, marginTop: 8, paddingLeft: 20}}>
@@ -80,9 +69,10 @@ const Login = () => {
           </LinearGradient>
       </TouchableOpacity>
 
-      <TouchableOpacity 
+      <TouchableOpacity
+        onPress={()=>{ navigation.navigate("SignUp")}}
         key={"회원가입"}
-        style={{ width: 263, height: 45, backgroundColor: 'white',borderColor: '#c4c4c4', borderRadius: 25, borderWidth: 0.7, borderWidth: 0.7, alignItems: "center", justifyContent: "center", marginTop: 10 }}>
+        style={{ width: 263, height: 45, backgroundColor: 'white',borderColor: '#c4c4c4', borderRadius: 25, borderWidth: 0.7, borderWidth: 0.7, alignItems: "center", justifyContent: "center", marginTop: 10  }}>
           <Text style={{ color: '#614692', fontWeight: '600'}}>회원가입</Text>
       </TouchableOpacity>
     </View>

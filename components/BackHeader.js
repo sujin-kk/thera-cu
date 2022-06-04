@@ -10,7 +10,7 @@ const BackHeader = ({ props }) => {
   const navigation = useNavigation();
   const statusBarHeight =
     Platform.OS === "ios" ? getStatusBarHeight(true) : StatusBar.currentHeight;
-
+  const screen = props
   return (
     <GlobalStyled.ViewRow
       style={{
@@ -30,7 +30,7 @@ const BackHeader = ({ props }) => {
       </TouchableOpacity>
       <View style={{ flex: 1 }}>
         <Text style={{ fontWeight: "bold", textAlign: "center", fontSize: 16 }}>
-          명상
+          {screen == "play" ?  "명상": "회원가입"}
         </Text>
       </View>
       <View style={{ flex: 1 }}></View>
