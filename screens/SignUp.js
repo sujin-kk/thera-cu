@@ -45,10 +45,9 @@ const SignUp = () => {
     }
   }
 
-  console.log(confirmPw)
   return (
     <View style={{ width: "100%", height: "100%", backgroundColor: '#F9FAFF', alignItems: 'center' }}>
-      <BackHeader screen={"signin"}></BackHeader>
+      <BackHeader screen={"signup"}></BackHeader>
       <View style={{ width: "100%", borderColor: 'white', borderWidth: 0.5, borderStyle: "solid", shadowColor: 'black', shadowOffset: { width: 0, height: 2 }, shadowRadius: 4, shadowOpacity: 0.25, elevation: 3 }}></View>
       <View style={{ width: wp(80), height: hp(75), marginTop: 30 }}>
         
