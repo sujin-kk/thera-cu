@@ -73,7 +73,7 @@ const Play = (props) => {
         justifyContent: "flex-start",
       }}
     >
-      <BackHeader />
+      <BackHeader screen={"play"}/>
       <Image
         style={{
           marginTop: 30,
