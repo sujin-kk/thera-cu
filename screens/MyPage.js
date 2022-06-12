@@ -15,6 +15,7 @@ import styled from "styled-components/native";
 import { useNavigation } from "@react-navigation/native";
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import Like from "./Like";
+import Statistics from "./Statistics";
 
 const statusBarHeight =
   Platform.OS === 'ios' ? getStatusBarHeight(true) : StatusBar.currentHeight;
@@ -28,25 +29,43 @@ const MyPage = () => {
     <MyPageView>
       <HeaderText>내 정보</HeaderText>
 
-      <View style={{height:210, alignItems:"center",}}>
+      <View style={{alignItems:"center", marginBottom: 20}}>
         <Image
           style={{
             //position:"absolute",
-            top:30
+            marginTop:30
           }}
           source={require("../assets/pngImage/img_mypage_profile.png")}
         />
-        <Text style={{top:35, fontSize:18,fontWeight:"900"}}>테라쿠</Text>
-        <Text style={{top:50, fontSize:14,color:"#C4C4C4"}}>theracu@konkuk.ac.kr</Text>
+        <Text style={{marginTop:10, fontSize:18,fontWeight:"900"}}>테라쿠</Text>
+        <Text style={{marginTop:15, fontSize:14,color:"#C4C4C4"}}>theracu@konkuk.ac.kr</Text>
+        
+        <TouchableOpacity
+          onPress={() => navigation.navigate(Statistics)}
+          style={{marginTop: 20, flexDirection:'row', width: '100%', alignItems:'center',justifyContent:'center'}}>
+            <View style={{marginRight: 45}}>
+              <Text style={{fontSize:12}}>명상 시간</Text>
+              <Text style={{fontWeight: '600', fontSize: 14, marginTop: 20}}>37 시간</Text>
+            </View>
+            <View style={{width:0, height:66, borderColor: '#D9D9D9', borderWidth: 1, borderStyle: 'solid'}}>
+            </View>
+            <View style={{marginLeft: 45}}>
+              <Text style={{fontSize: 12}}>명상 순위</Text>
+              <Text style={{fontWeight: '600',fontSize: 14, marginTop: 20}}>1852위</Text>
+            </View>
+            
+        </TouchableOpacity>
+
         <Image
           style={{
-            top:80,
+            marginTop:15,
             width:"100%",
             height:1.5,
           }}
           source={require("../assets/pngImage/img_mypage_line.png")}
         />
       </View>
+      
       <MyPageList title="최근 활동" data={recentData}/>
 
       <View style={{width:"100%",height:35,marginTop:15,marginLeft:20,diplay:"flex",flexDirection:"row"}}>
