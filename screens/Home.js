@@ -11,7 +11,7 @@ const Home = () => {
   const data = ApiService().getMeditationList().list;
   const trendData = ApiService().getTrendList().list;
   const topData = ApiService().getHomeTopList().list;
-
+  const date = new Date();
   return (
     <ScrollView
       style={{
@@ -27,28 +27,30 @@ const Home = () => {
           style={{ width: 120, height: 40, marginTop: 40 }}
           source={require("../assets/pngImage/img_logo.png")}
         />
-        <Text style={{ color: color.GRAY_800, fontSize: 15, marginTop: 30 }}>
-          당신은 지금까지
+        <Text style={{ color: color.GRAY_800, fontSize: 15, marginTop: 25 }}>
+          오늘의 추천
         </Text>
-
+        <Text style={{color: color.GRAY_800, fontSize: 18, marginTop: 15}}>
+            최근에 재생한 명상과
+        </Text>
         <Text
           style={{
             color: color.GRAY_800,
-            fontSize: 30,
+            fontSize: 18,
             marginTop: 10,
             fontWeight: "bold",
           }}
         >
-          37
-          <Text
-            style={{
-              color: color.GRAY_800,
-              fontSize: 15,
-              fontWeight: "normal",
-            }}
-          >
-            시간 동안 테라쿠와 함께했어요
-          </Text>
+         비슷한 명상
+         <Text style={{color: color.GRAY_800,
+            fontSize: 18,
+            marginTop: 10,
+            fontWeight:'normal'}}>
+          들을 확인해보세요.
+         </Text>
+        </Text>
+        <Text style={{marginTop: 15}}>
+          {date.getFullYear() + "." + (date.getMonth()+1) + "." + date.getDate()} 기준
         </Text>
         <HomeCarousel data={topData} />
       </LinearGradient>
